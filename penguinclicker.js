@@ -1,4 +1,4 @@
-var fish = 15000000000000000000000000000000000;
+var fish = 0;
 var penguins = [];
 var penguinCost = 1;
 var penguinCostMultiplier = 1.2;
@@ -180,8 +180,6 @@ setFishDisplay();
 setDayDisplay();
 message("Welcome! Catch some <strong>&#62;&#60;&#62;</strong> <strong>&#62;&#60;&#62;</strong> to begin");
 setInterval(function() {
-    penguins[penguins.length] = new Penguin();
     catchFish(false);
     incrementDay();
-    debug();
 },1000);

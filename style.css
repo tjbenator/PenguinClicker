@@ -1,0 +1,26 @@
+#wrap {
+    width: 90%;
+}
+.button {
+    margin: 10px;
+    padding: 5px;
+	text-align: left;
+	border: 1px solid #333;
+	font-weight: bold;
+}
+.button:hover {
+    background-color: orange;
+}
+
+.controls {
+     -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: moz-none;
+    -ms-user-select: none;
+    user-select: none;   
+}
+
+#stats, #messages {
+    margin: 10px;   
+}

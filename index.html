@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Penguin Clicker</title>
+         <link href="style.css" rel="stylesheet" type="text/css">
+         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id='wrap'>
+            <div id='stats'>
+                <strong>Fish Caught:</strong> <span id='fishCaught'>0</span><br />
+                <strong>Penguins:</strong> <span id='Penguins'>0</span>
+                <strong>Today:</strong> <span id='day'>0</span>/365<br />
+            </div>
+            <div id='dothings' class='controls'>
+                <a id='catchFish' class='button'>Catch <strong>&#62;&#60;&#62;</strong></a>
+                <a id='feedPenguins' class='button'>Feed Penguins</a>
+            </div>
+            <br />
+            <div id='store' class='controls'>
+                <a id='buyPenguin' class='button'> <strong>&#62;&#60;<span id='penguinCost'>0</span>&#62;</strong> Buy Penguin</a>
+                <a id='buyIgloo' class='button'>Buy Igloo</a>
+            </div>
+            <div id='messages'>
+            </div>
+            <table id='debug'>
+            </table>
+        </div>
+        <script src="./penguinclicker.js"></script>
+    </body>
+</html>

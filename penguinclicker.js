@@ -1,5 +1,3 @@
-
-
 $(function(){
     $('html').keydown(function(e){
        if (e.which == 119) {
@@ -129,7 +127,7 @@ function debug() {
     $('#debug').empty();
     $('#debug').append('<tr><th>age</th><th>distanceFromHome</th><th>fishCaught</th><th>milesTraveled</th></tr>');
     penguins.forEach(function (p) {
-        data = '<tr><th>' + p.age + '</th><th>' + p.distanceFromHome + '</th><th>' + p.fishCaught + '</th><th>' + p.milesTraveled + '</th></tr>';
+        data = '<tr><th>' + Math.ceil((p.age / 365) * 100) / 100 + ' years old</th><th>' + p.distanceFromHome + ' Miles</th><th>' + p.fishCaught + '</th><th>' + p.milesTraveled + ' Miles</th></tr>';
         $('#debug').append(data);
     });
 

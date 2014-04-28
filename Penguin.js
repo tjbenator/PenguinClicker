@@ -18,7 +18,6 @@ Penguin.prototype.health = function() {
 	}
 	
 	num = Math.floor(Math.random() * (100 - 0 + 1) + 0);
-	console.log(num + " " + chance);
 	if (num <= chance || chance > 100) {
 		return false;
 	}

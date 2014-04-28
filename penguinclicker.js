@@ -1,40 +1,3 @@
-$(function(){
-    $('html').keydown(function(e){
-       if (e.which == 119) {
-            debug();
-       }
-    });
-});
-
-function message(msg) {
-    $("<div class='message'>" + msg + "</div>").prependTo("#messages").hide().slideDown();
-    if ($("#messages > div").length > 3) {
-        $("#messages div:last").remove();
-        $("#messages div:last").fadeOut(2000, function() {
-               
-        });
-    }
-}
-
-/**
-Displays
-*/
-
-function setDayDisplay() {
-        $('#day').text(dayOfYear);
-}
-
-function setFishDisplay() {
-        $('#fishCaught').text(fish);
-}
-
-function setPenguinsDisplay() {
-        $('#Penguins').text(penguins.length);
-}
-
-function setPenguinCostDisplay() {
-    $('#penguinCost').text(parseInt(penguinCost));
-}
 
 /**
 Counts
@@ -72,12 +35,12 @@ function incrementDay() {
          penguins[k].age++;
          if (!penguins[k].health) {
             penguins.splice(k, 1);
-            message("Death to #" + k + ". " + penguins.length + " still alive!");
-            setPenguinsDisplay();
+            UI.message("Death to #" + k + ". " + penguins.length + " still alive!");
+            UI.setPenguins();
          }
     }
     
-    setDayDisplay();
+    UI.setDay();
 }
 
 function catchFish(user) {
@@ -91,12 +54,12 @@ function catchFish(user) {
         });
     } else {
         if (fish == 1) {
-            message("You have caught your first <strong>&#62;&#60;&#62;</strong>!!!");
+            UI.message("You have caught your first <strong>&#62;&#60;&#62;</strong>!!!");
         }
         fish++;
     }
     
-    setFishDisplay();
+    UI.setFish();
 
 }
 
@@ -104,13 +67,13 @@ function buyPenguin() {
     if (getFishCount() >= penguinCost) {
         useFish(penguinCost);
         penguins[penguins.length] = new Penguin();
-        setPenguinsDisplay();
+        UI.setPenguins();
         if (penguinCost < 2) {
             penguinCost = 2;
         } else {
             penguinCost = Math.ceil(penguinCostMultiplier * penguinCost);
         }
-        setPenguinCostDisplay();
+        UI.setPenguinCost();
     }
 }
 
@@ -133,11 +96,11 @@ function debug() {
 
 }
 
-setPenguinsDisplay();
-setPenguinCostDisplay(penguinCost);
-setFishDisplay();
-setDayDisplay();
-message("Welcome! Catch some <strong>&#62;&#60;&#62;</strong> <strong>&#62;&#60;&#62;</strong> to begin");
+UI.setPenguinCost(penguinCost);
+UI.setPenguins();
+UI.setFish();
+UI.setDay();
+UI.message("Welcome! Catch some <strong>&#62;&#60;&#62;</strong> <strong>&#62;&#60;&#62;</strong> to begin");
 setInterval(function() {
     catchFish(false);
     incrementDay();

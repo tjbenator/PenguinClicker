@@ -1,15 +1,4 @@
-var fish = 0;
-var penguins = [];
-var penguinCost = 1;
-var penguinCostMultiplier = 1.2;
-var catchChancePercentage = .75;
-var dayOfYear = 1; // 1-365
-var distanceToWater = 1; //in Miles
-var minDistanceToWater = 70;
-var maxDistanceToWater = 70;
-var percentageChanceOfDeath = 0.00000000000000000001;
-var minAge = 20;
-var maxAge = 60;
+
 
 $(function(){
     $('html').keydown(function(e){
@@ -65,23 +54,7 @@ function useFish(count) {
     fish = fish - count;
 }
 
-function grimReaper(age) {
-    if (age / 365 > minAge) {
-        chance = (percentageChanceOfDeath * 100) + ( ( (age / 365) / maxAge / 10) * 100);
-        console.log(chance);
-    } else {
-        chance = (percentageChanceOfDeath * 100);
-    }
-    
-    num = Math.floor(Math.random() * (100 - 0 + 1) + 0);
-    console.log(num + " " + chance);
-    if (num <= chance || chance > 100) {
-        return true;
-    }
-    
-    return false;
 
-}
 
 function distanceToWater() {
     //minDistanceToWater
@@ -96,10 +69,10 @@ function incrementDay() {
     } else {
         dayOfYear = 1;
     }
-    var toKill = [];
+
     for (var k in penguins) {
          penguins[k].age++;
-         if (grimReaper(penguins[k].age)) {
+         if (!penguins[k].health) {
             penguins.splice(k, 1);
             message("Death to #" + k + ". " + penguins.length + " still alive!");
             setPenguinsDisplay();
@@ -129,17 +102,6 @@ function catchFish(user) {
 
 }
 
-function Penguin() {
-    this.fishCaught = 0;
-    this.age = 0;
-    this.distanceFromHome = 0;
-    this.milesTraveled = 0;
-}
-
-Penguin.prototype.caughtFish = function(caught) {
-    this.fishCaught = this.fishCaught + caught;
-}
-
 function buyPenguin() {
     if (getFishCount() >= penguinCost) {
         useFish(penguinCost);
@@ -153,7 +115,6 @@ function buyPenguin() {
         setPenguinCostDisplay();
     }
 }
-
 
 $('#catchFish').click(function() {
     catchFish(true);

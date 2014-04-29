@@ -33,7 +33,7 @@ function incrementDay() {
 
     for (var k in penguins) {
          penguins[k].age++;
-         if (!penguins[k].health) {
+         if (!penguins[k].health()) {
             penguins.splice(k, 1);
             UI.message("Death to #" + k + ". " + penguins.length + " still alive!");
             UI.setPenguins();
@@ -88,9 +88,9 @@ $('#buyPenguin').click(function() {
 
 function debug() {
     $('#debug').empty();
-    $('#debug').append('<tr><th>age</th><th>distanceFromHome</th><th>fishCaught</th><th>milesTraveled</th></tr>');
+    $('#debug').append('<tr><th>age</th><th>distanceFromHome</th><th>fishCaught</th><th>milesTraveled</th><th>DeathDay</th></tr>');
     penguins.forEach(function (p) {
-        data = '<tr><th>' + Math.ceil((p.age / 365) * 100) / 100 + ' years old</th><th>' + p.distanceFromHome + ' Miles</th><th>' + p.fishCaught + '</th><th>' + p.milesTraveled + ' Miles</th></tr>';
+        data = '<tr><th>' + Math.ceil((p.age / 365) * 100) / 100 + ' years old</th><th>' + p.distanceFromHome + ' Miles</th><th>' + p.fishCaught + '</th><th>' + p.milesTraveled + ' Miles</th><th>' + Math.ceil((p.deathDay / 365) * 100) / 100 + ' years old</th></tr>';
         $('#debug').append(data);
     });
 
@@ -104,4 +104,5 @@ UI.message("Welcome! Catch some <strong>&#62;&#60;&#62;</strong> <strong>&#62;&#
 setInterval(function() {
     catchFish(false);
     incrementDay();
+    //debug();
 },1000);

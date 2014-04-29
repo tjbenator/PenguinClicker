@@ -1,15 +1,23 @@
 #wrap {
-    width: 90%;
+	width: 90%;
 }
+
 .button {
-    margin: 10px;
-    padding: 5px;
+	margin: 10px;
+	padding: 5px;
 	text-align: left;
 	border: 1px solid #333;
 	font-weight: bold;
+	cursor: pointer;
 }
+
 .button:hover {
-    background-color: orange;
+	background-color: orange;
+}
+
+.disabled {
+	background: grey !important;
+	cursor: not-allowed !important;
 }
 
 .controls {

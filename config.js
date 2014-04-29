@@ -1,12 +1,12 @@
 var fish = 0;
 var penguins = [];
 var penguinCost = 1;
-var penguinCostMultiplier = 1.2;
+var penguinCostMultiplier = 1.02;
 var catchChancePercentage = .75;
 var dayOfYear = 1; // 1-365
 var distanceToWater = 1; //in Miles
 var minDistanceToWater = 70;
 var maxDistanceToWater = 70;
-var percentageChanceOfDeath = 0.00000000000000000001;
+var chanceOfDeath = 1;
 var minAge = 20;
 var maxAge = 60;
